@@ -1,0 +1,186 @@
+ext {
+    COMMON_MODULE_DIR_PATH = projectDir.getPath() + "/core_comm/libs"
+    //主要控制app相关版本号
+    android = [
+            //sdk版本号
+            compileSdkVersion: 32,
+            //编译版本
+            buildToolsVersion: "31.0.2",
+            //包名
+            applicationId    : "com.wmy.mframeworkt",
+            //最小版本号L
+            minSdkVersion    : 22,
+            //最大版本号
+            targetSdkVersion : 32,
+
+            //应用版本号
+            versionCode      : 1,
+            //应用版本名称
+            versionName      : "1.0.0",
+    ]
+    //一些其他依赖的版本号
+    version = [
+            //retrofit +okhttp  网络版本号
+            retrofitSdkVersion       : "2.7.1",
+            okhttp3                  : "4.10.0",
+            okhttp_urlconnection     : "4.10.0",
+            okio                     : "2.6.0",
+            ok_logging               : "4.10.0",
+            //图片加载Glide
+            glide                    : "4.12.0",
+            glide_compiler           : '4.14.2',
+            glide_integration        : "4.12.0",
+            glide_transformations    : "4.3.0",
+
+
+            //以下为gradle配置
+            junit                    : "4.12", //安卓 junit
+            multidex                 : "2.0.1", //multidex库 解决65535
+            appcompat                : "1.4.0", //安卓 appcompat库
+            constraintlayout         : "2.1.2", //安卓 约束布局
+            material                 : "1.2.1", //material
+            cardview                 : "1.0.0", //卡片布局
+            viewpager                : "1.0.0", //viewpager
+            fragment                 : "1.2.2", //fragment
+            recyclerview                 : "1.2.1", //fragment
+
+            //ktx
+            extensions               : '2.4.1',
+            ktx                      : '+',
+            core_version             : '1.7.0',
+            coroutines               : '1.2.1',
+            work_runtime             : '2.7.1',
+            //其他的
+            pdf                      : "2.8.2", //pdf 展示
+            tinypinyin               : "3.0.0", //适用于Java和Android的快速、低内存占用的汉字转拼音库。
+            tinypinyin_lexicons      : "3.0.0", //TinyPinyin核心包，约80KB
+            wechat_sdk               : '6.7.9',
+            HeaderViewAdapter        : "1.2.2", //通用HeaderViewAdapter
+            SmartRefreshLayout       : "2.0.3", //通用下拉刷新框架
+            PickerView               : "4.1.9", //有时间选择器和选项选择器
+            greendao                 : "3.3.0", //greendao 数据库
+            GreenDaoUpgradeHelper    : "v2.2.1", //greendao 数据库升级帮助库
+
+            eventbusVersion          : "3.1.1",//代替各种事件，接口回调等，解决通信问题
+            butterknifeVersion       : "10.2.1",//注解
+            apmVersion               : "2.15.6",//当前听云APP版本号
+
+            PictureSelector          : "v3.11.1", //访问相机相册框架
+            switch_button            : "0.0.3@aar", //仿ios开关
+            autosize                 : "1.2.1", //AutoSize 屏幕适配
+            zxing                    : '3.3.3', //zxing 扫码框架 3.4.0+ 的库对Android 6.0 版本不友好
+            GSYVideoPlayer           : "7.1.2",//视频播放框架 版本号
+            SmartRefreshHeader       : "1.1.3",//下拉刷新框架头部
+            BGABanner                : "3.0.0",//轮播图
+            BaseRecyclerVersion      : "3.0.14",//BaseRecyclerViewAdapterHelper
+            doraemonkit              : '3.7.1',//debug dokit版本号
+            doraemonkit_no_op        : '3.7.1',//release dokit版本号
+            arouter                  : "1.5.1",
+            arouter_compiler         : '1.5.2',
+            volley                   : "1.1.1", //volley 网络请求
+            gson                     : "2.8.6", //gson数据解析
+            databindingg             : "3.1.4", //databinding
+            roomVersion              : "2.4.1", //room 数据库
+            rongcloud_version        : "2.10.4", //融云 sdk 版本号
+            LeakCanary               : "2.6",//LeakCanary
+            plocrsdk                 : "1.0.18.1",
+            exidcard                 : "0.0.4",//身份证识别
+            exbankcard               : "0.0.3",//银行卡识别
+            mmkv                     : "1.2.14",//mmkv 替代sp
+            SensorsAnalyticsSDK      : "6.6.1",//神策版本号
+            trtc_version             : "9.3.10768", //腾讯云TRTC音视频服务 sdk 版本号
+            SensorsAnalyticsProvider : "0.0.1",//埋点添加EC算法库依赖
+            im_version               : "5.0.10", //腾讯云即时通信IM sdk 版本号
+            push_version             : "6.5.0.300", //华为push
+            flowlayout               : "1.1.2", //流式布局
+            //高德地图
+            amap                     : "8.1.0", //3D地图so及jar
+            search                   : "8.1.0", //搜索功能
+            location                 : "6.0.0", //定位功能
+    ]
+    //数据库
+    db = [
+            "room-runtime": "androidx.room:room-runtime:${version["roomVersion"]}",
+            "room"        : "androidx.room:room-ktx:${version["roomVersion"]}",
+    ]
+
+
+    //retrofit 相关
+    retrofit = [
+            "retrofit2"                  : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
+            "retrofit-converter-gson"    : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
+            "retrofit-adapter-rxjava"    : "com.squareup.retrofit2:adapter-rxjava:${version["retrofitSdkVersion"]}",
+            "retrofit-adapter-rxjava2"   : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
+            "converter-scalars"          : "com.squareup.retrofit2:converter-scalars:${version["retrofitSdkVersion"]}",
+            "retrofit2-kotlin-coroutines": 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    ]
+    //okhttp 相关
+    okhttp = [
+            "okhttp-urlconnection": "com.squareup.okhttp3:okhttp-urlconnection:${version["okhttp_urlconnection"]}",
+            "okio"                : "com.squareup.okio:okio:${version["okio"]}",
+            "ok_logging"          : "com.squareup.okhttp3:logging-interceptor:${version["ok_logging"]}",
+            "okhttp3"             : "com.squareup.okhttp3:okhttp:${version["okhttp3"]}",
+//            "okhttp-android"      : "com.squareup.okhttp3:okhttp-android:${version["okhttp3"]}"
+    ]
+
+    //加载图片
+    glide = [
+            "glide"                : "com.github.bumptech.glide:glide:${version["glide"]}",
+            "glide_integration"    : "com.github.bumptech.glide:okhttp3-integration:${version["glide_integration"]}",
+            "glide_transformations": "jp.wasabeef:glide-transformations:${version["glide_transformations"]}",
+//            "androidsvg"           : "om.caverock:androidsvg-aar:1.3",
+    ]
+
+    //kotlin
+    ktx = [
+            'core-ktx'        : "androidx.core:core-ktx:${version['core_version']}",
+            'viewmodel-ktx'   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version['extensions']}",
+            'coroutines'      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1",
+            "work-runtime-ktx": "androidx.work:work-runtime-ktx:${version['work_runtime']}",
+            "livedata"        : "androidx.lifecycle:lifecycle-livedata-ktx:${version['extensions']}"
+
+    ]
+    ui = [
+
+            "multidex"        : "androidx.multidex:multidex:${version["multidex"]}",
+            "appcompat"       : "androidx.appcompat:appcompat:${version["appcompat"]}",
+            "constraintlayout": "androidx.constraintlayout:constraintlayout:${version["constraintlayout"]}",
+            "cardview"        : "androidx.cardview:cardview:${version["cardview"]}",
+            "viewpager"       : "androidx.viewpager:viewpager:${version["viewpager"]}",
+            "fragment"        : "androidx.fragment:fragment:${version["fragment"]}",
+            "recyclerview"    : "androidx.recyclerview:recyclerview:${version["recyclerview"]}",
+            "material"        : "com.google.android.material:material:${version["material"]}",
+    ]
+
+    //rx
+
+
+    PictureSelectors = [
+            //图片选择器
+            // PictureSelector 基础 (必须)
+            "pictureselector"         : "io.github.lucksiege:pictureselector:${version["PictureSelector"]}",
+
+            // 图片压缩 (按需引入)
+            "pictureselector_compress": "io.github.lucksiege:compress:${version["PictureSelector"]}",
+
+            // 图片裁剪 (按需引入)
+            "pictureselector_ucrop"   : "io.github.lucksiege:ucrop:${version["PictureSelector"]}",
+
+            // 自定义相机 (按需引入)
+            "pictureselector_camerax" : "io.github.lucksiege:camerax:${version["PictureSelector"]}"
+    ]
+    //retrofit相关
+    retrofits = retrofit.values();
+    //okhttp 相关
+    okhttps = okhttp.values();
+    //加载图片
+    glides = glide.values();
+
+    //kotlin
+    ktxs = ktx.values();
+    //ui相关
+    uis = ui.values();
+    compilers = compiler.values()
+    pictures = PictureSelectors.values()
+
+}
